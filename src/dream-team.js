@@ -14,12 +14,12 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function createDreamTeam(members) {
- 
+  throw new NotImplementedError('Not implemented');
  let team = [];
  members.map(x =>{
-  typeof x == 'string'?
-  team.push(x.trimStart().toUpperCase()[0]):
-  team;
+  if(typeof x == 'string'){
+    team.push(x.trimStart().toUpperCase()[0])
+  }
  })
  if(team.length > 0 ){
   return team.sort().join('')
