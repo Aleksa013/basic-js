@@ -11,6 +11,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function encodeLine(str) {
+  throw new NotImplementedError('Not implemented');
   const set = new Set(str);
   const arr = str.split('');
   console.log(set)
