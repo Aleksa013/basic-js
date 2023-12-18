@@ -18,7 +18,7 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 function dateSample( sampleActivity ) {
-  let answer=Math.ceil(Math.log(MODERN_ACTIVITY/sampleActivity)/(Math.log(2)/HALF_LIFE_PERIOD));
+let answer=Math.ceil(Math.log(MODERN_ACTIVITY/sampleActivity)/(Math.log(2)/HALF_LIFE_PERIOD));
 typeof sampleActivity == 'string' && !Number.isNaN(answer) && answer !== Infinity && answer > 0 ?
 answer:
 answer = false;

@@ -11,11 +11,12 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function getEmailDomain(email) {
-  throw new NotImplementedError('Not implemented');
-  const indexEm = email.indexOf('@');
-  return email.slice(indexEm)
+  let domain;
+  typeof email == 'string'?
+  domain =  email.slice(email.lastIndexOf('@')+1):
+  domain = false;
+  return domain;
 }
-
 
 
 module.exports = {

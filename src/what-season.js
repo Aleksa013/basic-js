@@ -12,39 +12,45 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason( date ) {
-  throw new NotImplementedError('Not implemented');
-  const daysOfMonths = [ 'Jan','Feb', 'Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; 
-  const numberMonth = +date.toJSON().slice(5,7)-1;
-  const nameMonth = date.toString().slice(4,7);
   let answer;
  
-  if(daysOfMonths[numberMonth] == nameMonth){
-   if(nameMonth == 'Jan'||nameMonth =='Feb'||nameMonth =='Dec'){
+ if (date instanceof Date){
+  const numberMonth = +date.toJSON().slice(5,7);   
+ const winter = [1,2,12];
+ const spring = [3,4,5];
+ const summer = [6,7,8];
+ const fall = [9,10,11];
+  if(numberMonth){
+   if(winter.includes(numberMonth)){
     answer = 'winter'
    }
-  if(nameMonth == 'Mar'||nameMonth =='Apr'||nameMonth =='May'){
+  if(spring.includes(numberMonth)){
     answer = 'spring'
   }
-  if(nameMonth == 'Jun'|| nameMonth =='Jul'||nameMonth =='Aug'){
+  if(summer.includes(numberMonth)){
     answer = 'summer'
   }
-  if(nameMonth == 'Sep'|| nameMonth =='Oct'||nameMonth =='Nov'){
+  if(fall.includes(numberMonth)){
     answer = 'fall'
-  }
-    
-  } else if(!data) {
-    answer = 'Unable to determine the time of year!'
-  }else{
-    answer ='Invalid date!'
-  }
+  } 
+  } 
+}else if(!date){
+  answer = 'Unable to determine the time of year!';
+}else if(isNaN(Date.parse(date))){
+  answer ='Invalid date!';
+}else{
+  answer =false
+}
 return answer
+
 }
 
 
-
-
-  
-
+console.log(getSeason('foo'))
+console.log( getSeason({ John: 'Smith' }))
+console.log(getSeason(20192701))
+console.log(getSeason([2019, '27', 0 + '1']))
+console.log(getSeason(() => new Date()));
 
 
 

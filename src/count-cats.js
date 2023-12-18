@@ -15,12 +15,11 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function countCats(cats) {
-  let count=0;
+let count=0;
  for(let i =0; i < cats.length; i++){
   cats[i].forEach(item=> {
     item=='^^'? count++: count;
-  });
- 
+  }); 
  }
  return count;
 }

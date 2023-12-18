@@ -24,20 +24,15 @@ addition = '', additionRepeatTimes=1, additionSeparator='|'} ) {
       additionRes += addition + additionSeparator:
       additionRes += addition
    }
-
  for(let k =0; k < repeatTimes; k++){
-
  if (k == repeatTimes-1){
   res += str + additionRes
- }else{
- 
+ }else{ 
   res += str + additionRes +separator
  } 
 }
 return res;
 }
-
-console.log(repeater('TESTstr', { separator: 'ds', addition: 'ADD!', additionSeparator: ')))000' }))
 module.exports = {
   repeater
 };

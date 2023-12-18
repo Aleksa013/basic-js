@@ -41,12 +41,7 @@ domains.forEach((domain) => {
 })
 return res;
 }
-domains = [
-    'code.yandex.ru',
-    'music.yandex.ru',
-    'yandex.ru'
-   ]
-console.log(getDNSStats( domains ));
+
 
 module.exports = {
   getDNSStats

@@ -11,21 +11,20 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function encodeLine(str) {
-  throw new NotImplementedError('Not implemented');
-  const set = new Set(str);
-  const arr = str.split('');
-  console.log(set)
-  let res = '';
-for(const letter of set){
-  const filteredArr = arr.filter(x => x == letter);
- if( filteredArr.length > 1) {
-  res += filteredArr.length + letter
- }else{
-  res +=  letter
- }
-
-  
-}
+let res = '';
+let arr = str.split('');
+let num = 1;
+arr.forEach((letter, index) =>{  
+  console.log( arr[index++],num)
+  if(arr[index++] == letter){
+    num++;
+  }else{
+    num == 1?
+    res += letter:
+    res += num+letter;
+    num=1;
+  }
+})
  return res;
 }
 
