@@ -24,53 +24,42 @@ const { NotImplementedError } = require('../extensions/index.js');
  * ]
  */
 function minesweeper(matrix) {
-const matrixMines = [];
-const cols = matrix[0].length;
-for(let i = 0; i < matrix.length; i++){
-  const itemMatrix = [];
-  for(let c = 0; c < cols; c++){
-    itemMatrix.push(0)
-  }
-  matrixMines.push(itemMatrix);
-  console.log(matrixMines, 'zeros')
-  for(let j=0; j < cols; j++){
-    if(matrix[i][j]){
-      let num = j;
-      console.log(num, 'num')
-      matrixMines[i][j]=1;
-      console.log(j,'j')
-      num++;
-      matrixMines[i][num] = 1;
-      console.log(num, 'num++')
-      console.log(matrixMines, 'matrix right', j)
-    }  
-    if(matrix[j][i]){
-      matrixMines[j][i]=1;
-      matrixMines[j][i++]=1;
-      i--;
-      console.log(matrixMines, 'matrix down', i)
-    }
-  }
-  for(let l=cols-1; l >= 0; l--){
-    if(matrix[i][l]){
-      matrixMines[i][l]=1;
-      matrixMines[i][l--]=1;
-      l++;
-      console.log(matrixMines, 'matrix left', l)
-    }
-     
-  }
-  for(let v=matrix.length-1; v >=0 ; v--){
-    if(matrix[v][cols-i]){
-      matrixMines[v][cols-i]=1;
-      matrixMines[v][cols-i++]=1;
-      cols+i
-      console.log(matrixMines, 'matrix top', v)
-    }
-  }
- 
-}
-return matrixMines
+  throw new NotImplementedError('Not implemented');
+// const matrixMines = [];
+// const cols = matrix[0].length;
+// const rows = matrix.length;
+
+// for(let i =0; i < rows; i++){
+//   matrixMines.push(Array())
+//   for(let j = 0; j < cols; j++){
+//     if(matrix[i][j]){
+//       matrixMines[i].push( 1 );
+//     }else{
+//       matrixMines[i].push( 0 );
+//     }
+//   }
+// }
+// for(let k =0; k < rows; k++){
+//   for(let m = 0; m < cols; m++){
+//     if(matrixMines[k][m] == 1){
+//       matrix[k][m]=1;
+//      if(k-- > 0 || k-- == 0){
+//       matrix[k--][m] += 1;
+//      }
+//      if(k++ < rows || k++ == 0){
+//       matrix[k++][m] += 1;
+//      }
+//      if(m++ < cols || m++ == 0){
+//       matrix[k][m++] += 1;
+//      }
+//      if(m-- > 0|| m-- == 0){
+//       matrix[k--][m] += 1;
+//      }
+//     }
+//   }
+// }
+
+
 }
  matrix = [
     [true, false, false],

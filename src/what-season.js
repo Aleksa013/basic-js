@@ -14,12 +14,12 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getSeason( date ) {
   let answer;
  
- if (date instanceof Date){
+ if (date instanceof Date ){
   const numberMonth = +date.toJSON().slice(5,7);   
- const winter = [1,2,12];
- const spring = [3,4,5];
- const summer = [6,7,8];
- const fall = [9,10,11];
+  const winter = [1,2,12];
+  const spring = [3,4,5];
+  const summer = [6,7,8];
+  const fall = [9,10,11];
   if(numberMonth){
    if(winter.includes(numberMonth)){
     answer = 'winter'
@@ -36,23 +36,19 @@ function getSeason( date ) {
   } 
 }else if(!date){
   answer = 'Unable to determine the time of year!';
-}else if(isNaN(Date.parse(date))){
-  answer ='Invalid date!';
+// }else if(isNaN(Date.parse(date))){
+//   throw new Error("Invalid date!")
 }else{
-  answer =false
+  // answer =false
+  throw new Error("Invalid date!")
 }
 return answer
-
 }
+// function getFullYear() {
+//   return Date.prototype.getFullYear.call(new Date(1994, 1, 2, 3, 4, 5));
+// }
 
-
-console.log(getSeason('foo'))
-console.log( getSeason({ John: 'Smith' }))
-console.log(getSeason(20192701))
-console.log(getSeason([2019, '27', 0 + '1']))
-console.log(getSeason(() => new Date()));
-
-
+// console.log(getSeason(getFullYear))
 
 module.exports = {
   getSeason

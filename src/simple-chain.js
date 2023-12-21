@@ -6,16 +6,14 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 const chainMaker = {
   getLength() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  return Object.keys(chainMaker).length;
   },
-  addLink(/* value */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  addLink( value ) {
+  this.position = this.getLength+1;
+  this.value= `(${value})`;
   },
-  removeLink(/* position */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  removeLink( position ) {
+  delete this.position;
   },
   reverseChain() {
     throw new NotImplementedError('Not implemented');
@@ -26,6 +24,8 @@ const chainMaker = {
     // remove line with error and write your code here
   }
 };
+
+console.log(chainMaker.addLink(1).addLink(3).getLength())
 
 module.exports = {
   chainMaker
