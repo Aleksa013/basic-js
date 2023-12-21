@@ -6,13 +6,16 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 const chainMaker = {
   getLength() {
+   
   return Object.keys(chainMaker).length;
   },
   addLink( value ) {
+    
   this.position = this.getLength+1;
   this.value= `(${value})`;
   },
   removeLink( position ) {
+   
   delete this.position;
   },
   reverseChain() {
@@ -25,7 +28,7 @@ const chainMaker = {
   }
 };
 
-console.log(chainMaker.addLink(1).addLink(3).getLength())
+
 
 module.exports = {
   chainMaker
