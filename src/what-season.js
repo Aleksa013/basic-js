@@ -44,11 +44,7 @@ function getSeason( date ) {
 }
 return answer
 }
-function getFullYear() {
-  return Date.prototype.getFullYear.call(new Date(1994, 1, 2, 3, 4, 5));
-}
-console.log(Object.getOwnPropertyNames(new Date(1456, 0, 2, 1, 50, 9, 238)))
-console.log(getSeason(getFullYear))
+
 
 module.exports = {
   getSeason
