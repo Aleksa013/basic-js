@@ -12,8 +12,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason( date ) {
-  let answer;
- 
+  let answer; 
  if (date instanceof Date ){
   const numberMonth = +date.toJSON().slice(5,7);   
   const winter = [1,2,12];
@@ -36,10 +35,9 @@ function getSeason( date ) {
   } 
 }else if(!date){
   answer = 'Unable to determine the time of year!';
-// }else if(isNaN(Date.parse(date))){
-//   throw new Error("Invalid date!")
+}else if(isNaN(Date.parse(date))|| date.toString() == 'Invalid Date'|| isNaN(date.valueOf())){
+  throw new Error("Invalid date!");
 }else{
-  // answer =false
   throw new Error("Invalid date!")
 }
 return answer

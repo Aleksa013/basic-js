@@ -24,49 +24,103 @@ const { NotImplementedError } = require('../extensions/index.js');
  * ]
  */
 function minesweeper(matrix) {
-
-// const matrixMines = [];
-// const cols = matrix[0].length;
-// const rows = matrix.length;
-
-// for(let i =0; i < rows; i++){
-//   matrixMines.push(Array())
-//   for(let j = 0; j < cols; j++){
-//     if(matrix[i][j]){
-//       matrixMines[i].push( 1 );
-//     }else{
-//       matrixMines[i].push( 0 );
-//     }
-//   }
-// }
-// for(let k =0; k < rows; k++){
-//   for(let m = 0; m < cols; m++){
-//     if(matrixMines[k][m] == 1){
-//       matrix[k][m]=1;
-//      if(k-- > 0 || k-- == 0){
-//       matrix[k--][m] += 1;
-//      }
-//      if(k++ < rows || k++ == 0){
-//       matrix[k++][m] += 1;
-//      }
-//      if(m++ < cols || m++ == 0){
-//       matrix[k][m++] += 1;
-//      }
-//      if(m-- > 0|| m-- == 0){
-//       matrix[k--][m] += 1;
-//      }
-//     }
-//   }
-// }
-
-
+const rows = matrix.length;
+const cols = matrix[0].length;
+const mines= [];
+for(let i = 0; i < rows; i++){
+  mines.push(Array())
+  for(let j = 0; j < cols; j++){
+if(matrix[i][j] == true){
+mines[i].push(true);
+}else{
+  mines[i].push(0);
 }
- matrix = [
-    [true, false, false],
-    [false, true, false],
-    [false, false, false]
-   ]
-console.log(minesweeper(matrix))
+} 
+}
+for(let i = 0; i < rows; i++){
+ for(let j = 0; j < cols; j++){
+if(matrix[i][j] == true ){
+  let num = j;
+  mines[i][num+1]+= 1 ;
+}
+ }
+  }
+  for(let i = 0; i < rows; i++){
+    for(let j = cols-1; j >= 0; j--){
+   if(matrix[i][j] == true && j > 0){
+    let num = j;
+    mines[i][num-1]+= 1 ;
+  }
+  }
+  }
+  for(let i = 0; i < cols; i++){
+    for(let j = rows-1; j >= 0; j--){
+    if(matrix[j][i] == true && j > 0){
+    let num = j;
+    mines[num-1][i]+= 1 ;     
+  }
+  }
+  }
+  for(let i = 0; i < cols; i++){
+  for(let j = 0; j < rows; j++){
+  if(matrix[j][i] == true ){
+  let num = j;
+  mines[num+1][i]+= 1 ;     
+    }
+    }
+  }
+  for(let i = 0; i < rows; i++){
+    for(let j = 0; j < cols; j++)
+    if(matrix[i][j] == true ){
+      let num = i;
+      let numb = j;
+      mines[num+1][numb+1] == true?
+      mines[num+1][numb+1]:
+      mines[num+1][numb+1]+= 1 ;
+    }
+  }
+  for(let i = rows-1; i >= 0; i--){
+    for(let j = cols-1; j >=0 ; j--)
+    if(matrix[i][j] == true && i > 0 && j >0){
+      let num = i;
+      let numb = j;
+      mines[num-1][numb-1] == true?
+      mines[num-1][numb-1]:
+      mines[num-1][numb-1]+= 1 ;
+    }
+  }
+  for(let i = rows-1; i >= 0; i--){
+    for(let j = 0; j < cols; j++){
+      if(matrix[i][j] == true && i > 0){
+        let numb = j;
+        let num = i;
+        mines[num-1][numb+1] == true?
+        mines[num-1][numb+1]:
+        mines[num-1][numb+1]+= 1 ;
+    }   
+  }
+ }
+ for(let i = cols-1; i >= 0; i--){
+  for(let j = 0; j < rows; j++){
+    if(matrix[j][i] == true && i > 0){
+      let num = i;
+      let numb =j;
+      mines[numb+1][num-1] == true?
+      mines[numb+1][num-1]:
+      mines[numb+1][num-1]+= 1 ;
+  }
+}   
+}
+for(let i = 0; i < rows; i++){
+  for(let j = 0; j < cols; j++){
+ if(matrix[i][j] == true){
+    mines[i].splice(j, 1, 1) 
+}
+} 
+}
+return mines;
+}
+
 module.exports = {
   minesweeper
 };
