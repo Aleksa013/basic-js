@@ -13,7 +13,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function getSeason( date ) {
   let answer; 
- if (date instanceof Date ){
+ if (date instanceof Date && Date.prototype.isPrototypeOf(date)){
   const numberMonth = +date.toJSON().slice(5,7);   
   const winter = [1,2,12];
   const spring = [3,4,5];
